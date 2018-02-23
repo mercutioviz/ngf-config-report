@@ -93,10 +93,6 @@ if ( @files ) {
         }
       }
 	  
-	  if ( ! $who ) {
-		$who = ' ';
-	  }
-
       #my @config_changes;
       my $operation;
       &dprint("Operation type: " . $data[3]);
@@ -115,6 +111,10 @@ if ( @files ) {
       &dprint("Config change: " . join '||',$config_changes[$#config_changes]);
     } # while
     close($fh);
+
+	if ( ! $who ) {
+	  $who = 'unspecified';
+	}
 
     &dprint("Config changes for file $file:");
     &dprint(join '|',@config_changes);
