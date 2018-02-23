@@ -92,6 +92,10 @@ if ( @files ) {
           $who .= 'at ' . $data[7];   # date and time
         }
       }
+	  
+	  if ( ! $who ) {
+		$who = ' ';
+	  }
 
       #my @config_changes;
       my $operation;
