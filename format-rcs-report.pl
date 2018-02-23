@@ -28,7 +28,9 @@ if ( $help ) {
   &usage();
 }
 
-if ( $date && $date !~ m/20\d\d-[01]\d-[0-3]\d/ ) {
+if ( ! $date ) {
+  print "No date specified, defaulting to yesterday...";
+} elsif ( $date !~ m/20\d\d-[01]\d-[0-3]\d/ ) {
   die "Invalid date: $date";
 } else {
   $date =~ tr/-/_/;  # File glob needs YYYY_MM_DD
